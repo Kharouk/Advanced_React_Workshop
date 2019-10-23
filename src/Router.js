@@ -5,18 +5,22 @@ import Form from "./components/Form";
 import WindowSizePage from "./components/WindowSize";
 import Timer from "./components/Timer";
 import "./App.css";
+import PrivateSection from "./components/PrivateSection";
 
 const NavRouter = () => {
   return (
     <Router>
       <div style={{ backgroundColor: "inherit" }}>
         <nav>
-          <ul style={{}}>
+          <ul>
             <li>
               <Link to="/">Home</Link>
             </li>
             <li>
               <Link to="/forms">Forms</Link>
+            </li>
+            <li>
+              <Link to="/private">Keep Out</Link>
             </li>
             <li>
               <Link to="/window">WindowSize</Link>
@@ -30,6 +34,9 @@ const NavRouter = () => {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
+          <Route path="/private">
+            <PrivateSection />
+          </Route>
           <Route path="/timer">
             <Timer />
           </Route>
