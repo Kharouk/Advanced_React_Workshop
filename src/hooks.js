@@ -7,17 +7,28 @@ export const useToggle = (value = false) => {
   return { isVisible, setVisibility, toggleVisibility };
 };
 
-export const useInput = (initialValue = "") => {
-  const [value, setValue] = useState(initialValue);
+export const useInput = (initialValue = "", persistKey = "") => {
+  // If the input has a persist key (the value to save to local storage), get the text
+  const initialState = persistKey
+    ? () => window.localStorage.getItem(persistKey)
+    : initialValue;
+
+  const [value, setValue] = useState(initialState);
+
   const onChange = e => setValue(e.target.value);
 
+  useEffect(() => {
+    if (!!persistKey) {
+      window.localStorage.setItem(persistKey, value);
+    }
+  }, [persistKey, value]);
   return { value, onChange };
 };
 
-export const useNumber = (initialNumber = 0) => {
+export const useNumber = (initialNumber = 0, steps = 1) => {
   const [number, setNumber] = useState(initialNumber);
-  const incrementCounter = () => setNumber(number => number + 1);
-  const decrementCounter = () => setNumber(number => number - 1);
+  const incrementCounter = () => setNumber(number => number + steps);
+  const decrementCounter = () => setNumber(number => number - steps);
 
   return { number, incrementCounter, decrementCounter };
 };
@@ -53,4 +64,19 @@ export const useMeasureWindow = () => {
 
   const { width, height } = dimensions;
   return { width, height };
+};
+
+export const useTimer = (duration, step) => {
+  const counter = useNumber(0, step);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      counter.incrementCounter();
+    }, duration * 1000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [counter, duration]);
+
+  return { counter };
 };
