@@ -1,12 +1,13 @@
 import React from "react";
 import Counter from "./components/Counter";
-import { useToggle } from "./hooks";
+import { useToggle, useInput } from "./hooks";
 import "./App.css";
 
 function App() {
   const counterToggle = useToggle(false);
   const { isVisible, toggleVisibility } = counterToggle;
-
+  const username = useInput("");
+  const email = useInput("");
   return (
     <div className="App">
       <header className="App-header">
@@ -18,6 +19,12 @@ function App() {
           {isVisible && <Counter />}
         </div>
       </header>
+      <div>
+        <h2>{username.value}</h2>
+        <input type="text" {...username} />
+        <h2>{email.value}</h2>
+        <input type="text" {...email} />
+      </div>
     </div>
   );
 }
