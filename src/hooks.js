@@ -21,3 +21,11 @@ export const useNumber = (initialNumber = 0) => {
 
   return { number, incrementCounter, decrementCounter };
 };
+
+export const useConsoleLog = title => {
+  useEffect(() => {
+    console.log(`Counter has mounted/re-rendered.`);
+    window.document.title = title;
+    console.log(title);
+  }, [title]);
+};

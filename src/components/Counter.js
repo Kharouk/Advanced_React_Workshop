@@ -1,14 +1,12 @@
-import React, { useEffect } from "react";
-import { useNumber } from "../hooks";
+import React from "react";
+import { useNumber, useConsoleLog } from "../hooks";
 
 const Counter = ({ initialNumber = 0 }) => {
   const { number, incrementCounter, decrementCounter } = useNumber(
     initialNumber
   );
 
-  useEffect(() => {
-    window.document.title = `Counter is at ${number}`;
-  }, [number]);
+  useConsoleLog(`Counter is at ${number}`);
 
   return (
     <div>
