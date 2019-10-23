@@ -16,15 +16,10 @@ function App() {
           <button onClick={toggleVisibility}>
             {isVisible ? "Hide Counter" : "Show Counter"}
           </button>
+          <button></button>
           {isVisible && <Counter />}
         </div>
       </header>
-      <div>
-        <h2>{username.value}</h2>
-        <input type="text" {...username} />
-        <h2>{email.value}</h2>
-        <input type="text" {...email} />
-      </div>
     </div>
   );
 }
