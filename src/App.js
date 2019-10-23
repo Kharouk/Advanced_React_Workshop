@@ -1,19 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 import Counter from "./components/Counter";
+import { useToggle } from "./hooks";
 import "./App.css";
 
 function App() {
-  const [counterVisibility, setCounterVis] = useState(false);
-  const toggleVisibility = () => setCounterVis(!counterVisibility);
+  const counterToggle = useToggle(false);
+  const { isVisible, toggleVisibility } = counterToggle;
 
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Advanced React With Kitze</h1>
-        <button onClick={toggleVisibility}>
-          {counterVisibility ? "Hide Counter" : "Show Counter"}
-        </button>
-        {counterVisibility && <Counter />}
+        <h1 id="main--event">Advanced React With Kitze</h1>
+        <div className="counter--div">
+          <button onClick={toggleVisibility}>
+            {isVisible ? "Hide Counter" : "Show Counter"}
+          </button>
+          {isVisible && <Counter />}
+        </div>
       </header>
     </div>
   );
