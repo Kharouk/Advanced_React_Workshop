@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 export const useToggle = (value = false) => {
   const [isVisible, setVisibility] = useState(value);
-  const toggleVisibility = () => setVisibility(!isVisible);
+  const toggleVisibility = () => setVisibility(isVisible => !isVisible);
 
   return { isVisible, setVisibility, toggleVisibility };
 };
