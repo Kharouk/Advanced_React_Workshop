@@ -6,7 +6,7 @@
   height: 40vmin;
 }
 
-.App-header {
+body {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -30,4 +30,19 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 5vw;
+}
+
+ul {
+  list-style: none;
+}
+
+ul li {
+  display: inline;
+  padding-right: 5px;
+}
+
+ul li a {
+  color: white;
+  display: inline;
+  padding-right: 5px;
 }

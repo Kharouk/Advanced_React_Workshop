@@ -2,13 +2,14 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import App from "./App";
 import Form from "./components/Form";
+import "./App.css";
 
 const NavRouter = () => {
   return (
     <Router>
-      <div>
+      <div style={{ backgroundColor: "inherit" }}>
         <nav>
-          <ul>
+          <ul style={{}}>
             <li>
               <Link to="/">Home</Link>
             </li>

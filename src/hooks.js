@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const useToggle = (value = false) => {
   const [isVisible, setVisibility] = useState(value);
@@ -12,4 +12,12 @@ export const useInput = (initialValue = "") => {
   const onChange = e => setValue(e.target.value);
 
   return { value, onChange };
+};
+
+export const useNumber = (initialNumber = 0) => {
+  const [number, setNumber] = useState(initialNumber);
+  const incrementCounter = () => setNumber(number => number + 1);
+  const decrementCounter = () => setNumber(number => number - 1);
+
+  return { number, incrementCounter, decrementCounter };
 };
