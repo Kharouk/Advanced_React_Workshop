@@ -1,19 +1,14 @@
 import React from "react";
-import { UserContext } from "../context/UserContext";
-import Header from "./Header";
+import Login from "./Login";
 import Footer from "./Footer";
+import AuthManager from "../context/AuthManager";
 
 const PrivateSection = () => {
-  const userObject = {
-    name: "John",
-    surname: "Lennon"
-  };
-
   return (
-    <UserContext.Provider value={userObject}>
-      <Header />
+    <AuthManager>
+      <Login />
       <Footer />
-    </UserContext.Provider>
+    </AuthManager>
   );
 };
 
