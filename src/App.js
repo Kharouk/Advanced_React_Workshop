@@ -1,20 +1,6 @@
 import React, { useState } from "react";
+import Counter from "./components/Counter";
 import "./App.css";
-
-const Counter = () => {
-  const initialNumber = 0;
-  const [number, setNumber] = useState(initialNumber);
-  const incrementCounter = () => setNumber(number + 1);
-  const decrementCounter = () => setNumber(number - 1);
-
-  return (
-    <div>
-      <h2>Counter is at {number}</h2>
-      <button onClick={incrementCounter}>Increment by 1</button>
-      <button onClick={decrementCounter}>Decrement by 1</button>
-    </div>
-  );
-};
 
 function App() {
   const [counterVisibility, setCounterVis] = useState(false);
