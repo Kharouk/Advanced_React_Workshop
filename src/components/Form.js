@@ -1,12 +1,14 @@
 import React from "react";
-
-const Form = ({ username, email }) => {
+import { useInput } from "../hooks";
+const Form = () => {
+  const username = useInput();
+  const email = useInput();
   return (
     <div>
       <h2>{username.value}</h2>
-      <input type="text" {...username} />
+      <input type="text" {...username} placeholder="username" />
       <h2>{email.value}</h2>
-      <input type="text" {...email} />
+      <input type="text" {...email} placeholder="email" />
     </div>
   );
 };

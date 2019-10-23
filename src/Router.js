@@ -21,11 +21,11 @@ const NavRouter = () => {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/">
-            <App />
-          </Route>
           <Route path="/forms">
             <Form />
+          </Route>
+          <Route path="/">
+            <App />
           </Route>
         </Switch>
       </div>
